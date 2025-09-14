@@ -9,9 +9,16 @@ import SwiftUI
 
 @main
 struct UserDirectoryApp: App {
+    @ObservedObject private var router = AuthFlowRouter()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack(path: $router.navPaths) {
+                LoginView()
+                    .navigationDestination(for: AuthFlow.self) { destination in
+                        destination.destinationView
+                    }
+            }
+            .environmentObject(router)
         }
     }
 }

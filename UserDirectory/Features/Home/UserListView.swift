@@ -8,11 +8,37 @@
 import SwiftUI
 
 struct UserListView: View {
+    @EnvironmentObject private var router: HomeFlowRouter
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            BackgroundView()
+            List(mockUsers) { user in
+                UserRow(user: user)
+                    .padding(Spacing.small)
+                    .listRowBackground(Color.clear)
+                    .onTapGesture {
+                        router.navigate(to: .userDetails(user: user))
+                    }
+            }
+            .listStyle(.plain)
+        }
+        .navigationTitle("Users")
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: {
+
+                }) {
+                    Text("Logout")
+                        .font(Typography.body(.xLarge))
+                        .padding(Spacing.small)
+                }
+            }
+        }
     }
 }
 
 #Preview {
-    UserListView()
+    NavigationStack {
+        UserListView()
+    }
 }
