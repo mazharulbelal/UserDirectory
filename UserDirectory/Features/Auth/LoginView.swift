@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct LoginView: View {
-    @State private var email = ""
-    @State private var password = ""
     @State private var isPasswordVisible = false
     @State private var isLoading = false
     @EnvironmentObject private var router: AuthFlowRouter
+    @StateObject private var repo = AuthRepository()
+    @State private var email: String = "eve.holt@reqres.in"
+    @State private var password: String = "cityslicka"
     var body: some View {
         ZStack {
             BackgroundView()
@@ -20,7 +21,22 @@ struct LoginView: View {
                 LoginHeader()
                 EmailTextField(email: $email)
                 PasswordTextField(password: $password, isVisible: $isPasswordVisible)
-                PrimaryButton(title: "Login")
+                switch repo.loginState {
+                case .idle:
+                    PrimaryButton(title: "Login")
+                        .onTapGesture {
+                            repo.login(email: email, password: password)
+                        }
+                case .failure(let error):
+                    ErrorView(message: error) {
+                        repo.login(email: email, password: password)
+                    }
+                    .padding()
+                case .loading:
+                   Loader()
+                case .success(_):
+                    Loader(message: "Logging you in…")
+                }
                 forgotPasswordButton()
                 Spacer()
                 createAccountSection()
@@ -52,7 +68,6 @@ struct LoginView: View {
                 Text("Create Account")
                     .foregroundColor(.primaryTextColor)
                     .font(Typography.body(.large))
-
             }
         }
         .padding(.bottom, Spacing.medium)

@@ -14,6 +14,7 @@ enum AppSystemImage: String {
     case envelope = "envelope"
     case message = "message.fill"
     case idCard = "person.fill"
+    case  info = "info.circle.fill"
     var image: Image {
         Image(systemName: rawValue)
     }

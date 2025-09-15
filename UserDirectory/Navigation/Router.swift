@@ -34,7 +34,7 @@ final class Router<Destination: NavigationDestination>: ObservableObject {
     }
 }
 
-enum HomeFlow: NavigationDestination {
+enum HomeFlow: NavigationDestination, Hashable {
     case userList
     case userDetails(user: User)
     var title: String {

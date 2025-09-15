@@ -9,16 +9,37 @@ import SwiftUI
 
 @main
 struct UserDirectoryApp: App {
-    @ObservedObject private var router = AuthFlowRouter()
+
+    @ObservedObject private var authRouter = AuthFlowRouter()
+    @ObservedObject private var homeRouter = HomeFlowRouter()
+    @StateObject private var dataManager = DataManager.shared
+
+    private func auth() -> some View {
+        NavigationStack(path: $authRouter.navPaths) {
+            LoginView()
+                .navigationDestination(for: AuthFlow.self) { $0.destinationView }
+        }
+        .environmentObject(authRouter)
+    }
+
+    private func home() -> some View {
+        NavigationStack(path: $homeRouter.navPaths) {
+            UserListView()
+                .navigationDestination(for: HomeFlow.self) { $0.destinationView }
+        }
+        .environmentObject(homeRouter)
+    }
+
     var body: some Scene {
-        WindowGroup {
-            NavigationStack(path: $router.navPaths) {
-                LoginView()
-                    .navigationDestination(for: AuthFlow.self) { destination in
-                        destination.destinationView
+            WindowGroup {
+                Group {
+                    if dataManager.hasValidToken() {
+                        home()
+                    } else {
+                        auth()
                     }
+                }
+            .animation(.smooth, value: dataManager.token)
             }
-            .environmentObject(router)
         }
     }
-}

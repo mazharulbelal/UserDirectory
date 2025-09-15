@@ -23,7 +23,7 @@ struct UserDetailsView: View {
                     .scaleEffect(appear ? 1 : 0.8)
                     .animation(.spring(response: 0.5, dampingFraction: 0.7), value: appear)
                 // MARK: - Name
-                Text(user.fullName)
+                Text("ddd")
                     .font(Typography.heading(.xxLarge))
                     .fontWeight(.semibold)
                     .foregroundColor(.primaryTextColor)
@@ -51,6 +51,6 @@ struct UserDetailsView: View {
     }
 }
 
-#Preview {
-    UserDetailsView(user: mockUsers.first!)
-}
+//#Preview {
+//    UserDetailsView(user: mockUsers.first!)
+//}

@@ -9,24 +9,42 @@ import SwiftUI
 
 struct UserListView: View {
     @EnvironmentObject private var router: HomeFlowRouter
+    @StateObject private var viewModel = UserViewModel()
     var body: some View {
         ZStack {
             BackgroundView()
-            List(mockUsers) { user in
-                UserRow(user: user)
-                    .padding(Spacing.small)
-                    .listRowBackground(Color.clear)
-                    .onTapGesture {
-                        router.navigate(to: .userDetails(user: user))
+            switch viewModel.usersState {
+            case .idle:
+                Text("Idel")
+            case .loading:
+                Loader()
+            case .success(let value):
+                List(value.data) { user in
+                    UserRow(user: user)
+                        .padding(Spacing.small)
+                        .listRowBackground(Color.clear)
+                        .onTapGesture {
+                            router.navigate(to: .userDetails(user: user))
                     }
+                }
+                .listStyle(.plain)
+                .refreshable {
+                    viewModel.getUser()
+                }
+            case .failure(let message):
+                ErrorView(message: message)
             }
-            .listStyle(.plain)
+        }
+        .onAppear() {
+            viewModel.getUser()
         }
         .navigationTitle("Users")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: {
-
+                    DataManager.shared.deleteToken()
+                    router.navPaths.removeAll()
+                    router.root = .auth
                 }) {
                     Text("Logout")
                         .font(Typography.body(.xLarge))
