@@ -15,9 +15,9 @@ struct UserListView: View {
             BackgroundView()
             switch viewModel.usersState {
             case .idle:
-                Text("Idel")
+                ErrorView(message: "No user available")
             case .loading:
-                Loader()
+                Loader(message: "Fetching users..")
             case .success(let value):
                 List(value.data) { user in
                     UserRow(user: user)
@@ -35,7 +35,7 @@ struct UserListView: View {
                 ErrorView(message: message)
             }
         }
-        .onAppear() {
+        .onAppear () {
             viewModel.getUser()
         }
         .navigationTitle("Users")
@@ -44,10 +44,9 @@ struct UserListView: View {
                 Button(action: {
                     DataManager.shared.deleteToken()
                     router.navPaths.removeAll()
-                    router.root = .auth
                 }) {
                     Text("Logout")
-                        .font(Typography.body(.xLarge))
+                        .font(Typography.body(.medium))
                         .padding(Spacing.small)
                 }
             }

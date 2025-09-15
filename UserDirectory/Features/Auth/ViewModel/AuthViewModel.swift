@@ -12,7 +12,6 @@ final class AuthRepository: ObservableObject {
     private let dataManager: DataManagerProtocol
     private var cancellables = Set<AnyCancellable>()
     @Published var loginState: LoadableState<LoginResponse> = .idle
-    
     init(network: NetworkServicing = NetworkService(),
          dataManager: DataManagerProtocol = DataManager.shared) {
         self.network = network
@@ -29,6 +28,5 @@ final class AuthRepository: ObservableObject {
     func logout() {
         dataManager.deleteToken()
         loginState = .idle
-    }    
-
+    }
 }

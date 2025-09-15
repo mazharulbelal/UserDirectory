@@ -17,13 +17,9 @@ protocol NavigationDestination {
 
 final class Router<Destination: NavigationDestination>: ObservableObject {
     @Published var navPaths: [Destination] = []
-    @Published var root: RootFlow = .auth
+
     func navigate(to destination: Destination) {
         navPaths.append(destination)
-    }
-    enum RootFlow{
-        case auth
-        case home
     }
     func navigateBack() {
         guard !navPaths.isEmpty else { return }

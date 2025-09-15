@@ -23,7 +23,7 @@ struct UserDetailsView: View {
                     .scaleEffect(appear ? 1 : 0.8)
                     .animation(.spring(response: 0.5, dampingFraction: 0.7), value: appear)
                 // MARK: - Name
-                Text("ddd")
+                Text(user.fullName)
                     .font(Typography.heading(.xxLarge))
                     .fontWeight(.semibold)
                     .foregroundColor(.primaryTextColor)
@@ -36,21 +36,15 @@ struct UserDetailsView: View {
                     InfoCard(icon: .envelope, title: "Email", value: user.email, color: .blue)
                 }
                 .padding(.horizontal, Spacing.pageHorizontalPadding)
-
                 .opacity(appear ? 1 : 0)
                 .offset(y: appear ? 0 : 20)
                 .animation(.easeOut(duration: 0.5).delay(0.3), value: appear)
                 Spacer()
             }
-            .padding(.top, 80)
-            .padding(.horizontal, Spacing.pageHorizontalPadding)
+            .padding()
         }
         .onAppear { appear = true }
         .navigationTitle("Details")
         .navigationBarTitleDisplayMode(.inline)
     }
 }
-
-//#Preview {
-//    UserDetailsView(user: mockUsers.first!)
-//}

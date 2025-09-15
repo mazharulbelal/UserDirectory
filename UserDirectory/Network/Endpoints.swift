@@ -51,4 +51,12 @@ enum Endpoint: APIEndpoint {
             return []
         }
     }
+    var cachePolicy: URLRequest.CachePolicy {
+        switch self {
+        case .getUsers:
+            return .returnCacheDataElseLoad
+        default:
+            return .reloadIgnoringLocalCacheData
+        }
+    }
 }

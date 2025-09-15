@@ -20,7 +20,7 @@ struct ErrorView: View {
         VStack(spacing: Spacing.medium) {
             AppSystemImage.info.image
                 .foregroundColor(.yellow)
-                .font(.system(size: 30)) 
+                .font(Typography.body(.medium))
             Text(message)
                 .foregroundColor(.gray)
                 .font(.subheadline)
