@@ -9,11 +9,9 @@ import SwiftUI
 
 @main
 struct UserDirectoryApp: App {
-    
     @ObservedObject private var authRouter = AuthFlowRouter()
     @ObservedObject private var homeRouter = HomeFlowRouter()
     @StateObject private var dataManager = DataManager.shared
-    
     private func auth() -> some View {
         NavigationStack(path: $authRouter.navPaths) {
             LoginView()
@@ -21,7 +19,6 @@ struct UserDirectoryApp: App {
         }
         .environmentObject(authRouter)
     }
-    
     private func home() -> some View {
         NavigationStack(path: $homeRouter.navPaths) {
             UserListView()
@@ -29,7 +26,6 @@ struct UserDirectoryApp: App {
         }
         .environmentObject(homeRouter)
     }
-    
     var body: some Scene {
         WindowGroup {
             Group {

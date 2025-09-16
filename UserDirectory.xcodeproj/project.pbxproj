@@ -6,14 +6,31 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		94DA97892E78E71F00F84322 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9416825F2E764FB500F5D02F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 941682662E764FB500F5D02F;
+			remoteInfo = UserDirectory;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		941682672E764FB500F5D02F /* UserDirectory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UserDirectory.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		94DA97852E78E71F00F84322 /* UserDirectoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UserDirectoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		94DA97992E78EFF500F84322 /* UserDirectory.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UserDirectory.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		941682692E764FB500F5D02F /* UserDirectory */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = UserDirectory;
+			sourceTree = "<group>";
+		};
+		94DA97862E78E71F00F84322 /* UserDirectoryTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = UserDirectoryTests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -26,13 +43,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		94DA97822E78E71F00F84322 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		9416825E2E764FB500F5D02F = {
 			isa = PBXGroup;
 			children = (
+				94DA97992E78EFF500F84322 /* UserDirectory.xctestplan */,
 				941682692E764FB500F5D02F /* UserDirectory */,
+				94DA97862E78E71F00F84322 /* UserDirectoryTests */,
 				941682682E764FB500F5D02F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				941682672E764FB500F5D02F /* UserDirectory.app */,
+				94DA97852E78E71F00F84322 /* UserDirectoryTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -71,6 +98,29 @@
 			productReference = 941682672E764FB500F5D02F /* UserDirectory.app */;
 			productType = "com.apple.product-type.application";
 		};
+		94DA97842E78E71F00F84322 /* UserDirectoryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 94DA978B2E78E71F00F84322 /* Build configuration list for PBXNativeTarget "UserDirectoryTests" */;
+			buildPhases = (
+				94DA97812E78E71F00F84322 /* Sources */,
+				94DA97822E78E71F00F84322 /* Frameworks */,
+				94DA97832E78E71F00F84322 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				94DA978A2E78E71F00F84322 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				94DA97862E78E71F00F84322 /* UserDirectoryTests */,
+			);
+			name = UserDirectoryTests;
+			packageProductDependencies = (
+			);
+			productName = UserDirectoryTests;
+			productReference = 94DA97852E78E71F00F84322 /* UserDirectoryTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -83,6 +133,10 @@
 				TargetAttributes = {
 					941682662E764FB500F5D02F = {
 						CreatedOnToolsVersion = 26.0;
+					};
+					94DA97842E78E71F00F84322 = {
+						CreatedOnToolsVersion = 26.0;
+						TestTargetID = 941682662E764FB500F5D02F;
 					};
 				};
 			};
@@ -101,12 +155,20 @@
 			projectRoot = "";
 			targets = (
 				941682662E764FB500F5D02F /* UserDirectory */,
+				94DA97842E78E71F00F84322 /* UserDirectoryTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		941682652E764FB500F5D02F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94DA97832E78E71F00F84322 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -143,7 +205,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		94DA97812E78E71F00F84322 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		94DA978A2E78E71F00F84322 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 941682662E764FB500F5D02F /* UserDirectory */;
+			targetProxy = 94DA97892E78E71F00F84322 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		941682702E764FB700F5D02F /* Debug */ = {
@@ -331,6 +408,46 @@
 			};
 			name = Release;
 		};
+		94DA978C2E78E71F00F84322 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 57QD39YJ2V;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.edoktor.test.UserDirectoryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UserDirectory.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/UserDirectory";
+			};
+			name = Debug;
+		};
+		94DA978D2E78E71F00F84322 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 57QD39YJ2V;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.edoktor.test.UserDirectoryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UserDirectory.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/UserDirectory";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -348,6 +465,15 @@
 			buildConfigurations = (
 				941682732E764FB700F5D02F /* Debug */,
 				941682742E764FB700F5D02F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		94DA978B2E78E71F00F84322 /* Build configuration list for PBXNativeTarget "UserDirectoryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94DA978C2E78E71F00F84322 /* Debug */,
+				94DA978D2E78E71F00F84322 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

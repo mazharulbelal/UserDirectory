@@ -11,7 +11,7 @@ struct LoginView: View {
     @State private var isPasswordVisible = false
     @State private var isLoading = false
     @EnvironmentObject private var router: AuthFlowRouter
-    @StateObject private var repo = AuthRepository()
+    @StateObject private var repo = AuthViewModel()
     @State private var email: String = "eve.holt@reqres.in"
     @State private var password: String = "cityslicka"
     var body: some View {

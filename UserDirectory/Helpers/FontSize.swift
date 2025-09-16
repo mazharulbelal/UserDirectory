@@ -8,7 +8,6 @@
 import SwiftUI
 
 // MARK: - FontSize Enum
-
 enum FontSize {
     case xSmall, small, medium, large, xLarge, xxLarge, xxxLarge
     case accessibility1, accessibility2, accessibility3, accessibility4, accessibility5

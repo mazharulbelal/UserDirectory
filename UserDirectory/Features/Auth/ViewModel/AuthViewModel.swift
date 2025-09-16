@@ -7,7 +7,7 @@
 import Combine
 import Foundation
 
-final class AuthRepository: ObservableObject {
+final class AuthViewModel: ObservableObject {
     private let network: NetworkServicing
     private let dataManager: DataManagerProtocol
     private var cancellables = Set<AnyCancellable>()

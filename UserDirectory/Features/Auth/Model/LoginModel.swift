@@ -6,11 +6,11 @@
 //
 import Foundation
 
-struct LoginRequest: Encodable {
+struct LoginRequest: Codable {
     let email: String
     let password: String
 }
 
-struct LoginResponse: Decodable {
+struct LoginResponse: Codable {
     let token: String
 }

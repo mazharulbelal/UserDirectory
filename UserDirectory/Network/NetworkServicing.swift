@@ -13,11 +13,18 @@ protocol NetworkServicing {
 }
 
 final class NetworkService: NetworkServicing {
+    private let session: URLSession
+
+    init(session: URLSession = .shared) {
+        self.session = session
+    }
+
     func request<T: Decodable>(_ endpoint: APIEndpoint) -> AnyPublisher<T, NetworkError> {
         guard let request = endpoint.urlRequest else {
             return Fail(error: NetworkError.invalidURL).eraseToAnyPublisher()
         }
-        return URLSession.shared.dataTaskPublisher(for: request)
+
+        return session.dataTaskPublisher(for: request)
             .tryMap { output in
                 guard let httpResponse = output.response as? HTTPURLResponse else {
                     throw NetworkError.unknown(URLError(.badServerResponse))
