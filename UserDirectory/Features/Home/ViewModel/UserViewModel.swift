@@ -9,10 +9,10 @@ import Combine
 import Foundation
 
 final class UserViewModel: ObservableObject {
-    private let network: NetworkServicing
+    private let network: NetworkServiceProtocol
     private var cancellables = Set<AnyCancellable>()
     @Published var usersState: LoadableState<UserResponse> = .idle
-    init(network: NetworkServicing = NetworkService()) {
+    init(network: NetworkServiceProtocol = NetworkService()) {
         self.network = network
     }
     func getUser() {

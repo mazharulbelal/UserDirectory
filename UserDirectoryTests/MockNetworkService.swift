@@ -19,7 +19,7 @@ final class MockDataManager: DataManagerProtocol {
 }
 
 // MARK: - Mock Services
-final class MockNetworkService: NetworkServicing {
+final class MockNetworkService: NetworkServiceProtocol {
     var shouldSucceed = true
     var response: Any = LoginResponse(token: "mock-token")
     var error: NetworkError = .serverError(code: 500, message: "Mock error")

@@ -8,11 +8,11 @@ import Combine
 import Foundation
 
 final class AuthViewModel: ObservableObject {
-    private let network: NetworkServicing
+    private let network: NetworkServiceProtocol
     private let dataManager: DataManagerProtocol
     private var cancellables = Set<AnyCancellable>()
     @Published var loginState: LoadableState<LoginResponse> = .idle
-    init(network: NetworkServicing = NetworkService(),
+    init(network: NetworkServiceProtocol = NetworkService(),
          dataManager: DataManagerProtocol = DataManager.shared) {
         self.network = network
         self.dataManager = dataManager

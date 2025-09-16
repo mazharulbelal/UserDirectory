@@ -193,7 +193,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed. Download from https://github.com/realm/SwiftLint\"\nfi\n\n\n";
+			shellScript = "
+";
 		};
 /* End PBXShellScriptBuildPhase section */
 
